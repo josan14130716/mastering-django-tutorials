@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block content %} 
+<h1>Hi! About</h1>
+
+<!-- <h3>{{ title|capfirst|upper }}</h3> -->
+<h3>{{ title|capfirst|title }}</h3>
+
+<p>this is a template</p>
+<!-- {{ my_html|safe}} -->
+<!-- {{ my_html|striptags }}  -->
+{{ my_html|striptags|slugify}} 
+
+<ul>
+    <!-- <li>{{ title }}</li> -->
+    <!-- <li>{{ my_text}}</li> -->
+    <li>{{ my_number}}</li>
+    <li>{{ my_list }}</li>
+</ul>
+
+<!-- <p>
+    {{ my_text }}, {{ my_number }}
+    {{ my_list }}
+</p> -->
+
+<ul>
+    <li>Item 1</li>
+    <li>Item 2</li>
+</ul>
+<!-- <ul>
+    {% for my_sub_item in my_list %}
+        <li>{{ forloop.counter }}-{{ my_sub_item }}</li>
+    {% endfor %}
+</ul> -->
+
+<!-- <ul>
+    {% for abc in my_list %}
+        {% if abc == 123 %}
+            <li>{{ forloop.counter }}-{{ abc|add:20}}</li>
+        {% else %}
+        <li>{{ forloop.counter }}-{{ abc }}</li>
+        {% endif %}
+        {% endfor %}
+</ul> -->
+
+<ul>
+    {% for abc in my_list %}
+        {% if abc == 123 %}
+            <li>{{ forloop.counter }}-{{ abc|add:20}}</li>
+        {% elif abc == "A bc" %}
+            <li>This is no the network</li>
+        {% else %}
+        <li>{{ forloop.counter }}-{{ abc }}</li>
+        {% endif %}
+        {% endfor %}
+</ul>
+
+{% endblock %}
